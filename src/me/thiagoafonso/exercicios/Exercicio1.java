@@ -9,6 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import me.thiagoafonso.janelas.Enviar;
+import me.thiagoafonso.janelas.ReceberLinha;
+
 public class Exercicio1 extends JFrame{
 	
 	JButton btnvoltar = new JButton("Voltar");
@@ -18,6 +21,8 @@ public class Exercicio1 extends JFrame{
 	
 	Font fex = new Font("Descrição do Execício", Font.PLAIN, 20);
 	Font ftit = new Font("Título", Font.PLAIN, 30);
+	ReceberLinha RL = new ReceberLinha();
+	Enviar E = new Enviar();
 	
 	public static void main(String[] args){
 		Exercicio1 Ex1 = new Exercicio1();
@@ -40,6 +45,14 @@ public class Exercicio1 extends JFrame{
 		
 		btniniciar.setBounds(150, 250, 160, 30);
 		paine.add(btniniciar);
+		btniniciar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				btniniciar.setEnabled(false);
+				exercicio();
+			}
+		});
 		
 		btnvoltar.setBounds(350, 350, 100, 30);
 		paine.add(btnvoltar);
@@ -55,5 +68,21 @@ public class Exercicio1 extends JFrame{
 		this.setSize(500, 500);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	public void exercicio(){
+				String teste;
+				
+				RL.InserirLinha("Título teste", "Mensagem teste");				
+				teste = RL.getLinha();
+				E.mensagem("Exercício 1", teste);
+				metodoAguardar();
+				btniniciar.setEnabled(true);
+	}
+	
+	public void metodoAguardar(){
+		while(RL.botaoPressionado() == false){
+			System.out.println("Repetindo...");
+		}
 	}
 }

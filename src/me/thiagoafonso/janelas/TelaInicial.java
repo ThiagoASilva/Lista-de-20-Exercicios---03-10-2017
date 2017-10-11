@@ -1,4 +1,4 @@
-package me.thiagoafonso.telainicial;
+package me.thiagoafonso.janelas;
 
 import java.awt.Container;
 import java.awt.Font;
