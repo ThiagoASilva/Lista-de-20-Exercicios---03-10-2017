@@ -83,9 +83,8 @@ public class TelaInicial extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				me.thiagoafonso.exercicios.Exercicio1 ex1 = new me.thiagoafonso.exercicios.Exercicio1();
-				
-				
+				me.thiagoafonso.exercicios.controller.ExerciciosController ex1 = new me.thiagoafonso.exercicios.controller.ExerciciosController();
+
 			}
 		});
 		

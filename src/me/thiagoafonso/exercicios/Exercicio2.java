@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 public class Exercicio2 extends JFrame{
 
 	public static void main(String[] args){
-		Exercicio1 Ex2 = new Exercicio1();
+		
 	}
 	
 	public Exercicio2(){

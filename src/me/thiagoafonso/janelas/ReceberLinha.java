@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import me.thiagoafonso.exercicios.controller.ExerciciosController;
+
 public class ReceberLinha extends JFrame{	
 	
 	JButton btnok = new JButton("OK");
@@ -16,18 +18,17 @@ public class ReceberLinha extends JFrame{
 	JLabel lmensagem = new JLabel();
 	String linha;
 	boolean ok;
+	boolean v = true;
 
 	public static void main(String[] args){
-		ReceberLinha RL = new ReceberLinha();
+		ReceberLinha RL = new ReceberLinha("Título Padrao", "Mensagem Padrao", null, 0);
 	}
 	
-	public ReceberLinha(){
-		
-	}
-	
-	public void InserirLinha(String titulo, String mensagem){				
-		
+	public ReceberLinha(String titulo, String mensagem,ExerciciosController retorno, int numeroDoExercicio){
+		super();
 		ok = false;
+		if(retorno != null){
+			
 		Container paine = this.getContentPane();
 		paine.setLayout(null);
 				
@@ -44,7 +45,8 @@ public class ReceberLinha extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				linha = lmensagem.getText();
+				linha = txtlinhadig.getText();
+				retorno.retornoLinha(linha, numeroDoExercicio);
 				ReceberLinha.this.dispose();
 				ok = true;
 				
@@ -58,8 +60,11 @@ public class ReceberLinha extends JFrame{
 		this.setVisible(true);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);	
 		this.setContentPane(paine);
-
+		
+		}
 	}
+	
+
 	
 	public boolean botaoPressionado(){
 		
@@ -68,5 +73,10 @@ public class ReceberLinha extends JFrame{
 	public String getLinha(){
 		
 		return linha;
+	}
+	
+	public boolean estaVazia(){
+		
+		return v;
 	}
 }
